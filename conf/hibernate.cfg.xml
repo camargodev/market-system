@@ -1,0 +1,40 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+		
+		<!-- Configurações do POSTGRESQL -->
+        <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+        <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/allfood</property>
+        <property name="hibernate.connection.username">postgres</property>
+        <property name="hibernate.connection.password">jvevfsd</property>
+        
+		<!-- Configurações do HIBERNATE -->
+		<!-- IMPORTANTE -->
+		<!-- colocar o hbm2dll.auto como 'create' ao rodar pela primeira vez -->
+		<!-- alterar para 'none' depois que o servidor foi criado pela primeira vez  -->
+        <property name="hbm2ddl.auto">create</property>
+        <property name="show_sql">true</property>
+        <property name="format_sql">true</property>
+        <property name="hibernate.jdbc.lob.non_contextual_creation">true</property>
+        <property name="connection_pool_size">1</property>
+       
+		<!-- Adicionar aqui os models criados -->
+		<mapping class="engsoft.allfood.model.Category"/>
+		<mapping class="engsoft.allfood.model.Product"/>
+		<mapping class="engsoft.allfood.model.Address"/>
+		<mapping class="engsoft.allfood.model.Person"/>
+		<mapping class="engsoft.allfood.model.Client"/>
+		<mapping class="engsoft.allfood.model.Purchase"/>
+		<mapping class="engsoft.allfood.model.PurchaseItem"/>
+		<mapping class="engsoft.allfood.model.ProductHistory"/>
+		<mapping class="engsoft.allfood.model.Opinion"/>
+		<mapping class="engsoft.allfood.model.RevenueHistory"/>
+		<mapping class="engsoft.allfood.model.Admin"/>
+		<mapping class="engsoft.allfood.model.Restriction"/>
+		
+    </session-factory>
+</hibernate-configuration>

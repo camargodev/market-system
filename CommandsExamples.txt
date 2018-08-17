@@ -1,0 +1,48 @@
+INSERIR CATEGORIA:
+http://localhost:8080/category/insert?name=Alimento
+
+INSERIR PRODUTOS:
+http://localhost:8080/product/insert?name=Alface&price=0.50&categoryId=1&quantityInStock=10
+http://localhost:8080/product/insert?name=Alfafa&price=0.70&categoryId=1&quantityInStock=3
+
+INSERIR ENDEREÇO:
+http://localhost:8080/address/insert?country=BR&state=RS&city=SL&street=Mst João&neighborhood=Sta Tereza&houseNumber=318&cep=123
+
+INSERIR CLIENTE:
+http://localhost:8080/client/insert?name=João&cpf=666&email=ofamosojv@bol.br&autenticated=false&addressId=1&paymentType=2&password=xD
+
+INSERIR COMPRA:
+http://localhost:8080/purchase/insert?clientId=1&deliveryType=1
+
+INSERIR PRODUTO NA COMPRA (LINHA DE COMPRA):
+http://localhost:8080/purchaseitem/insert?productId=1&quantity=2.3&purchaseId=1
+
+ATUALIZAR QUANTIDADE DE UM ITEM NA COMPRA:
+http://localhost:8080/purchaseitem/updatequantity?purchaseitemid=2&quantity=1
+
+PROCESSAR COMPRA: 
+caso os produtos dos itens da compra possuam em estoque as quantidades solicitadas, essas quantidades vão ser descontadas do produto 
+e serão adicionadas ao pendingQuantity da productHistory.
+http://localhost:8080/purchase/processpurchase?purchaseId=1
+
+FINALIZAR COMPRA:
+as quantidades que tão como pendentes são retiradas dos pendentes e adicionadas ao totalSold
+http://localhost:8080/purchase/finishpurchase?purchaseId=1
+
+CANCELAR COMPRA:
+as quantidades que tão como pendentes são retiradas dos pendentes e devolvidas ao estoque
+http://localhost:8080/purchase/cancelpurchase?purchaseId=1
+
+LISTA DE PRODUTOS:
+http://localhost:8080/product/search (default = não filtra por categoria nem nome, mostra ordenado pelo preço crescente)
+http://localhost:8080/product/search?categoryId=1 (filtra pela categoria, o resto é o default)
+http://localhost:8080/product/search?text=alf (retorna os produtos que começam com alf, o resto é default)
+http://localhost:8080/product/search?isDesc=true (mostra em ordem decrescente o resto é default)
+http://localhost:8080/product/search?orderByPrice=false (como o default é o preço, colocar isso como price ordena pelo número de vendas)
+Isso pode ser combinado de diversas formas. Exemplos:
+Mostrar todos da categoria ordenando pelos mais vendidos:
+http://localhost:8080/product/search?categoryId=2&isDesc=true&orderByPrice=false
+Mostrar os da categoria 8 que começam com Batata ordenando pelo preço mais baixo:
+http://localhost:8080/product/search?categoryId=8&text=Batata
+
+Ainda tem métodos de update e pegar por ID, mas esses são mais fáceis de visualizar/testar
