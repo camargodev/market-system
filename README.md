@@ -1,5 +1,5 @@
-## Engenharia de Software 18/2 - AllFood
-** Bruno Santana, Felipe Zorzo, João Vitor de Camargo, Rafa Longo e William Wilbert **
+# Engenharia de Software 18/2 - AllFood
+## Bruno Santana, Felipe Zorzo, João Vitor de Camargo, Rafa Longo e William Wilbert 
 
 Tecnologias usadas:
 - Java 1.8
@@ -36,5 +36,5 @@ Explicando os arquivos:
 - hibernate.cfg.xml: arquivo de configuração do Hibernate. Aqui é onde é colocado o banco de dados onde as coisas serão criadas. ATENÇÃO: não é necessário criar as tabelas na mão com SQLs. Os modelos persistidos virarão as tabelas. É necessário apenas criar um banco de dados PostgreSQL. O que DEVE ser alterado nesse arquivo é o usuário/senha do Postgres e a URL do banco de dados (provavelmente só o nome, que o meu eu criei como allfood). Lá também devem ser adicionadas os modelos que virarão tabelas.
 - HibernateUtil: classe que informa que usa os dados do hibernate.cfg.xml pra criar sessões com BD. Nas classes DAO criadas, a HibernateUtil foi usada pra criar sessões.:
 
-** GLHF **
+# GLHF 
 
